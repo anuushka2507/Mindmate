@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MindMate - Check In</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <nav style="text-align:center; margin-bottom: 24px;">
+    <a href="/">Home</a> ·
+    <a href="/routine">Routine</a> ·
+    <a href="/schedule">Schedule</a> ·
+    <a href="/habits">Habits</a> ·
+    <a href="/dashboard">Dashboard</a> ·
+    <a href="/need-to-talk">Need to Talk?</a>
+</nav>
+        <h1>What's been affecting you lately?</h1>
+
+        <form action="/checkin" method="POST">
+            <label><input type="checkbox" name="concerns" value="Academic workload"> Academic workload</label><br>
+            <label><input type="checkbox" name="concerns" value="Time management"> Time management</label><br>
+            <label><input type="checkbox" name="concerns" value="Sleep routine"> Sleep routine</label><br>
+            <label><input type="checkbox" name="concerns" value="Social/family pressure"> Social/family pressure</label><br>
+            <label><input type="checkbox" name="concerns" value="Screen time"> Screen time</label><br>
+            <label><input type="checkbox" name="concerns" value="Work responsibilities"> Work responsibilities</label><br>
+            <label><input type="checkbox" name="concerns" value="Feeling overwhelmed"> Feeling overwhelmed</label><br>
+            <label><input type="checkbox" name="concerns" value="Other"> Other</label>
+            <input type="text" name="other_detail" placeholder="Please specify"><br>
+
+            <br>
+            <label for="details">Tell us more (optional):</label><br>
+            <textarea name="details" id="details" rows="4" cols="40"></textarea><br><br>
+
+            <button type="submit">Continue</button>
+
+        </form>
+
+    </body>
+</html>

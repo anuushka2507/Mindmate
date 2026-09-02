@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MindMate - My Support Person</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav style="text-align:center; margin-bottom: 24px;">
+    <a href="/">Home</a> ·
+    <a href="/routine">Routine</a> ·
+    <a href="/schedule">Schedule</a> ·
+    <a href="/habits">Habits</a> ·
+    <a href="/dashboard">Dashboard</a> ·
+    <a href="/need-to-talk">Need to Talk?</a>
+</nav>
+    <h1>My Support Person</h1>
+
+    {% if person %}
+        <p>Name: {{ person.name }}</p>
+        <p>Contact: {{ person.contact }}</p>
+        <a href="tel:{{ person.contact }}"><button>Contact them</button></a>
+    {% else %}
+        <p>You haven't added a trusted person yet.</p>
+        <form action="/trusted-person" method="POST">
+            <label>Name: <input type="text" name="name" required></label><br><br>
+            <label>Contact: <input type="text" name="contact" required placeholder="Phone number"></label><br><br>
+            <button type="submit">Save</button>
+        </form>
+    {% endif %}
+
+    <br><a href="/need-to-talk">Back</a>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MindMate - Habit Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav style="text-align:center; margin-bottom: 24px;">
+    <a href="/">Home</a> ·
+    <a href="/routine">Routine</a> ·
+    <a href="/schedule">Schedule</a> ·
+    <a href="/habits">Habits</a> ·
+    <a href="/dashboard">Dashboard</a> ·
+    <a href="/need-to-talk">Need to Talk?</a>
+</nav>
+    <h1>Habit Tracker</h1>
+
+    <form action="/habits" method="POST">
+        <input type="text" name="new_habit" placeholder="New habit name">
+        <button type="submit">Add Habit</button>
+    </form>
+
+    <hr>
+
+    {% for item in habit_data %}
+        <div>
+            <strong>{{ item.habit.name }}</strong> — Streak: {{ item.streak }} day(s)
+            {% if item.badge %} — {{ item.badge }} {% endif %}
+            <br>
+            {% if item.done_today %}
+                <em>Done today ✔</em>
+            {% else %}
+                <form action="/habits" method="POST">
+                    <button type="submit" name="complete_habit" value="{{ item.habit.id }}">Mark done today</button>
+                </form>
+            {% endif %}
+        </div>
+        <br>
+    {% endfor %}
+
+</body>
+</html>

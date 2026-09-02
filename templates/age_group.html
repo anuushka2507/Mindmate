@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MindMate - Age Group</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <nav style="text-align:center; margin-bottom: 24px;">
+    <a href="/">Home</a> ·
+    <a href="/routine">Routine</a> ·
+    <a href="/schedule">Schedule</a> ·
+    <a href="/habits">Habits</a> ·
+    <a href="/dashboard">Dashboard</a> ·
+    <a href="/need-to-talk">Need to Talk?</a>
+</nav>
+        <h1>Which age group are you in?</h1>
+        <p>This helps us tailor general recommendations. We only store your age group, never your exact birthdate </p>
+        <form action="/age-group" method="POST">
+            <button type="submit" name="age_group" value="13-15">13-15</button>
+            <button type="submit" name="age_group" value="16-18">16-18</button>
+            <button type="submit" name="age_group" value="19-22">19-22</button>
+            <button type="submit" name="age_group" value="23+">23+</button>
+        </form>
+    </body>
+</html>

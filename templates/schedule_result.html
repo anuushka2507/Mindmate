@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MindMate - Your Schedule</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <nav style="text-align:center; margin-bottom: 24px;">
+    <a href="/">Home</a> ·
+    <a href="/routine">Routine</a> ·
+    <a href="/schedule">Schedule</a> ·
+    <a href="/habits">Habits</a> ·
+    <a href="/dashboard">Dashboard</a> ·
+    <a href="/need-to-talk">Need to Talk?</a>
+</nav>
+        <h1>Your Suggested Schedule</h1>
+        <ul>
+            {% for time, activity in schedule_items %}
+            <li><strong>{{ time }}</strong>- {{ activity }}</li>
+            {% endfor %}
+        </ul>
+
+        <a href="/schedule">Back</a>
+    </body>
+</html>

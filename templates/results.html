@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MindMate - Your Results</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <nav style="text-align:center; margin-bottom: 24px;">
+    <a href="/">Home</a> ·
+    <a href="/routine">Routine</a> ·
+    <a href="/schedule">Schedule</a> ·
+    <a href="/habits">Habits</a> ·
+    <a href="/dashboard">Dashboard</a> ·
+    <a href="/need-to-talk">Need to Talk?</a>
+</nav>
+        <h1>Your Pattern Summary</h1>
+        <p>{{ summary }}</p>
+
+        <h2>Suggestions</h2>
+        <ul>
+            {% for suggestion in suggestions %}
+            <li>{{ suggestion }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Why these were flagged</h2>
+        <ul>
+            {% for flag, explanation in explanations.items() %}
+            <li><strong>{{ flag }}:</strong> {{ explanation }}</li>
+            {% endfor %}
+
+        </ul>
+    </body>
+</html>

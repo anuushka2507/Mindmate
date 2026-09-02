@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MindMate - Daily Routine </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <nav style="text-align:center; margin-bottom: 24px;">
+    <a href="/">Home</a> ·
+    <a href="/routine">Routine</a> ·
+    <a href="/schedule">Schedule</a> ·
+    <a href="/habits">Habits</a> ·
+    <a href="/dashboard">Dashboard</a> ·
+    <a href="/need-to-talk">Need to Talk?</a>
+</nav>
+        <h1>Tell us about your day</h1>
+
+        <form action="/routine" method="POST">
+            <label>Sleep hours: <input type="number" step="0.5" name="sleep_hours" required></label><br><br>
+            <label>Study/work hours: <input type="number" step="0.5" name="workload_hours" required></label><br><br>
+            <label>Break hours: <input type="number" step="0.5" name="break_hours" required></label><br><br>
+            <label>Screen time hours: <input type="number" step="0.5" name="screen_hours" required></label><br><br>
+
+            <label>Eating routine:
+                <select name="eating_routine">
+                    <option value="regular">Regular</option>
+                    <option value="irregular">Irregular</option>
+                </select>
+            </label><br><br>
+            <button type="submit">Analyze</button>
+        </form>
+    </body>
+</html>

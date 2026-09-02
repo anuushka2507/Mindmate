@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MindMate - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+<body>
+    <nav style="text-align:center; margin-bottom: 24px;">
+        <a href="/">Home</a> ·
+        <a href="/routine">Routine</a> ·
+        <a href="/schedule">Schedule</a> ·
+        <a href="/habits">Habits</a> ·
+        <a href="/dashboard">Dashboard</a> ·
+        <a href="/need-to-talk">Need to Talk?</a>
+    </nav>
+
+    <h1>Your Progress</h1>
+    <p>Based on {{ total_entries }} check-in(s) so far.</p>
+
+    <canvas id="myChart" width="500" height="350"></canvas>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Avg Sleep', 'Avg Workload', 'Avg Screen Time'],
+                datasets: [{
+                    label: 'Hours',
+                    data: [{{ avg_sleep }}, {{ avg_workload }}, {{ avg_screen }}],
+                    backgroundColor: ['#C97B84', '#B5793F', '#7A9E9F'],
+                    borderRadius: 10
+                }]
+            },
+            options: {
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+    </script>
+
+    <br><a href="/">Return to home</a>
+</body>
+</html>
